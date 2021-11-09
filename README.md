@@ -5,8 +5,10 @@ Protocol: http
 IP: 162.55.220.72
 Port: 5005
 
+
 + EP_1
-	Method: GET
+
+	```Method: GET
 	EndPoint: /get_method
 	request url params: 
  	name: str
@@ -19,7 +21,7 @@ Port: 5005
 		]
 
 + EP_2
-	Method: POST
+	```Method: POST
 	EndPoint: /user_info_3
 	request form data: 
  	name: str
@@ -34,7 +36,7 @@ Port: 5005
                      	'u_salary_1_5_year': salary * 4}}
 
 + EP_3
-	Method: GET
+	```Method: GET
 	EndPoint: /object_info_1
 	request url params: 
 	name: str
@@ -48,7 +50,7 @@ Port: 5005
           	'daily_sleep': weight * 2.5}
 
 + EP_4
-	Method: GET
+	```Method: GET
 	EndPoint: /object_info_2
 	request url params: 
  	name: str
@@ -67,7 +69,7 @@ Port: 5005
           	}
 
 + EP_5
-	Method: GET
+	```Method: GET
 	EndPoint: /object_info_3
 	request url params: 
  	name: str
@@ -87,7 +89,7 @@ Port: 5005
           	}
 
 + EP_6
-	Method: GET
+	```Method: GET
 	EndPoint: /object_info_4
 	request url params: 
  	name: str
@@ -100,7 +102,7 @@ Port: 5005
           	'salary': [salary, str(salary * 2), str(salary * 3)]}
 
 + EP_7
-	Method: POST
+	```Method: POST
 	EndPoint: /user_info_2
 	request form data: 
  	name: str
@@ -206,17 +208,17 @@ ________________________________________________________________________________
 ## **HW_3 Postman** [Коллекция](https://github.com/nlinky/Postman/blob/main/HW_3.postman_collection.json) [Окружение](https://github.com/nlinky/Postman/blob/main/HW_3.postman_environment.json)
 
 + 1 необходимо залогиниться
-	POST
+	```POST
 	http://162.55.220.72:5005/login
 	login : str (кроме /)
 	password : str
-
 Приходящий токен необходимо передать во все остальные запросы.
 
 *Дальше все запросы требуют наличие токена.*
 
+
 + 2 http://162.55.220.72:5005/user_info
-	req. (RAW JSON)
+	```req. (RAW JSON)
 	POST
 	age: int
 	salary: int
@@ -232,15 +234,15 @@ ________________________________________________________________________________
                                 	'u_age':age,
                                 	'u_salary_1.5_year': salary * 4}
                                 	}
-
 Тесты:
 1) Статус код 200
 2) Проверка структуры json в ответе.
 3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
 4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user
 
+
 + 3 http://162.55.220.72:5005/new_data
-	req.
+	```req.
 	POST
 	age: int
 	salary: int
@@ -251,15 +253,15 @@ ________________________________________________________________________________
 	{'name':name,
   	'age': int(age),
   	'salary': [salary, str(salary*2), str(salary*3)]}
-
 Тесты:
 1) Статус код 200
 2) Проверка структуры json в ответе.
 3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
 4) проверить, что 2-й элемент массива salary больше 1-го и 0-го
 
+
 + 4 http://162.55.220.72:5005/test_pet_info
-	req.
+	```req.
 	POST
 	age: int
 	weight: int
@@ -273,14 +275,14 @@ ________________________________________________________________________________
  	'daily_food':weight * 0.012,
  	'daily_sleep': weight * 2.5}
 
-
 Тесты:
 1) Статус код 200
 2) Проверка структуры json в ответе.
 3) В ответе указаны коэффициенты умножения weight, напишите тесты по проверке правильности результата перемножения на коэффициент.
 
+
 + 5 http://162.55.220.72:5005/get_test_user
-	req.
+	```req.
 	POST
 	age: int
 	salary: int
@@ -294,15 +296,15 @@ ________________________________________________________________________________
  	'family':{'children':[['Alex', 24],['Kate', 12]],
  	'u_salary_1.5_year': salary * 4}
   	}
-
 Тесты:
 1) Статус код 200
 2) Проверка структуры json в ответе.
 3) Проверить что занчение поля name = значению переменной name из окружения
 4) Проверить что занчение поля age в ответе соответсвует отправленному в запросе значению поля age
 
+
 + 6 http://162.55.220.72:5005/currency
-	req.
+	```req.
 	POST
 	auth_token
 
@@ -318,13 +320,13 @@ ________________________________________________________________________________
  	"Cur_Name": str
 	}
 	]
-
 Тесты:
 1) Можете взять любой объект из присланного списка, используйте js random.
 В объекте возьмите Cur_ID и передать через окружение в следующий запрос.
 
+
 + 7 http://162.55.220.72:5005/curr_byn
-	req.	
+	```req.	
 	POST
 	auth_token
 	curr_code: int
@@ -338,12 +340,13 @@ ________________________________________________________________________________
     	"Cur_Scale": int,
     	"Date": str
 	}
-
 Тесты:
 1) Статус код 200
 2) Проверка структуры json в ответе.
 
+
 + Задание со * 6 и 7
+``` 
 1) получить список валют
 2) итерировать список валют
 3) в каждой итерации отправлять запрос на сервер для получения курса каждой валюты
