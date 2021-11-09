@@ -1,11 +1,11 @@
 # Postman
-## HW_1
+## **HW_1** [Коллекция](https://github.com/nlinky/Postman/blob/main/HW_1.postman_collection.json)
 
 Protocol: http
 IP: 162.55.220.72
 Port: 5005
 
-EP_1
++ EP_1
 Method: GET
 EndPoint: /get_method
 request url params: 
@@ -18,9 +18,7 @@ response:
     “Str”
 ]
 
-==================
-
-EP_2
++ EP_2
 Method: POST
 EndPoint: /user_info_3
 request form data: 
@@ -35,10 +33,7 @@ response:
           'family': {'children': [['Alex', 24], ['Kate', 12]],
                      'u_salary_1_5_year': salary * 4}}
 
-
-==================
-
-EP_3
++ EP_3
 Method: GET
 EndPoint: /object_info_1
 request url params: 
@@ -52,10 +47,7 @@ response:
           'daily_food': weight * 0.012,
           'daily_sleep': weight * 2.5}
 
-
-==================
-
-EP_4
++ EP_4
 Method: GET
 EndPoint: /object_info_2
 request url params: 
@@ -74,10 +66,7 @@ response:
                      'u_salary_5_years': salary * 4.2}
           }
 
-
-==================
-
-EP_5
++ EP_5
 Method: GET
 EndPoint: /object_info_3
 request url params: 
@@ -97,10 +86,7 @@ response:
                      'u_salary_1_5_year': salary * 4}
           }
 
-
-==================
-
-EP_6
++ EP_6
 Method: GET
 EndPoint: /object_info_4
 request url params: 
@@ -113,10 +99,7 @@ response:
           'age': int(age),
           'salary': [salary, str(salary * 2), str(salary * 3)]}
 
-
-==================
-
-EP_7
++ EP_7
 Method: POST
 EndPoint: /user_info_2
 request form data: 
@@ -135,15 +118,15 @@ response:
                      'u_salary_5_years': salary * 4.2}
           }
 ___________________________________________________________________________________
-## HW_2
+## **HW_2** [Коллекция](https://github.com/nlinky/Postman/blob/main/HW_2.postman_collection.json) [Окружение](https://github.com/nlinky/Postman/blob/main/HW_2.postman_environment.json)
 
-http://162.55.220.72:5005/first
++ http://162.55.220.72:5005/first
 1. Отправить запрос.
 2. Статус код 200
 3. Проверить, что в body приходит правильный string.
 
 
-http://162.55.220.72:5005/user_info_3
++ http://162.55.220.72:5005/user_info_3
 1. Отправить запрос.
 2. Статус код 200
 3. Спарсить response body в json.
@@ -158,7 +141,7 @@ http://162.55.220.72:5005/user_info_3
 12. Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request)
 
 
-http://162.55.220.72:5005/object_info_3
++ http://162.55.220.72:5005/object_info_3
 1. Отправить запрос.
 2. Статус код 200
 3. Спарсить response body в json.
@@ -172,7 +155,7 @@ http://162.55.220.72:5005/object_info_3
 11. Проверить, что параметр name имеет значение Luky.
 12. Проверить, что параметр age имеет значение 4.
 
-http://162.55.220.72:5005/object_info_4
++ http://162.55.220.72:5005/object_info_4
 1. Отправить запрос.
 2. Статус код 200
 3. Спарсить response body в json.
@@ -196,7 +179,7 @@ http://162.55.220.72:5005/object_info_4
 21. Написать цикл который выведет в консоль по порядку элементы списка из параметра salary.
 
 
-http://162.55.220.72:5005/user_info_2
++ http://162.55.220.72:5005/user_info_2
 1. Вставить параметр salary из окружения в request
 2. Вставить параметр salary из окружения в age
 3. Вставить параметр salary из окружения в name
@@ -220,12 +203,9 @@ http://162.55.220.72:5005/user_info_2
 21. Проверить, что параметр u_salary_5_years равен salary*4.2 из request (salary забрать из request.)
 22. Написать цикл который выведет в консоль по порядку элементы списка из параметра person.
 ___________________________________________________________________________________
-## HW_3 Postman
-=====
+## **HW_3 Postman** [Коллекция](https://github.com/nlinky/Postman/blob/main/HW_3.postman_collection.json) [Окружение](https://github.com/nlinky/Postman/blob/main/HW_3.postman_environment.json)
 
-=====
-
-1) необходимо залогиниться
++ 1) необходимо залогиниться
 POST
 http://162.55.220.72:5005/login
 login : str (кроме /)
@@ -233,11 +213,9 @@ password : str
 
 Приходящий токен необходимо передать во все остальные запросы.
 
-===================
-дальше все запросы требуют наличие токена.
-===================
+*Дальше все запросы требуют наличие токена.*
 
-2) http://162.55.220.72:5005/user_info
++ 2) http://162.55.220.72:5005/user_info
 req. (RAW JSON)
 POST
 age: int
@@ -260,9 +238,8 @@ resp.
 2) Проверка структуры json в ответе.
 3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
 4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user
-===================
 
-3) http://162.55.220.72:5005/new_data
++ 3) http://162.55.220.72:5005/new_data
 req.
 POST
 age: int
@@ -280,9 +257,8 @@ Resp.
 2) Проверка структуры json в ответе.
 3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
 4) проверить, что 2-й элемент массива salary больше 1-го и 0-го
-===================
 
-4) http://162.55.220.72:5005/test_pet_info
++ 4) http://162.55.220.72:5005/test_pet_info
 req.
 POST
 age: int
@@ -303,9 +279,7 @@ Resp.
 2) Проверка структуры json в ответе.
 3) В ответе указаны коэффициенты умножения weight, напишите тесты по проверке правильности результата перемножения на коэффициент.
 
-===================
-
-5) http://162.55.220.72:5005/get_test_user
++ 5) http://162.55.220.72:5005/get_test_user
 req.
 POST
 age: int
@@ -327,9 +301,7 @@ Resp.
 3) Проверить что занчение поля name = значению переменной name из окружения
 4) Проверить что занчение поля age в ответе соответсвует отправленному в запросе значению поля age
 
-===================
-
-6) http://162.55.220.72:5005/currency
++ 6) http://162.55.220.72:5005/currency
 req.
 POST
 auth_token
@@ -351,9 +323,7 @@ Resp. Передаётся список массив объектов.
 1) Можете взять любой объект из присланного списка, используйте js random.
 В объекте возьмите Cur_ID и передать через окружение в следующий запрос.
 
- ===================
-
-7) http://162.55.220.72:5005/curr_byn
++ 7) http://162.55.220.72:5005/curr_byn
 req.
 POST
 auth_token
@@ -373,9 +343,7 @@ Resp.
 1) Статус код 200
 2) Проверка структуры json в ответе.
 
-
-===============
-***
++ Задание со * 6 и 7
 1) получить список валют
 2) итерировать список валют
 3) в каждой итерации отправлять запрос на сервер для получения курса каждой валюты
